@@ -1,0 +1,169 @@
+@charset "UTF-8";
+
+:root {
+    --border: 0.1rem solid rgba(0, 0, 0, 0.3);
+    --bg: #FAFAFA;
+    --lateralbar: #002594;
+    --meses: #4169E1;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    width: 100%;
+    height: 100dvh;
+}
+
+#root {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    /* OBS? trocar para GRID para ficar mais performático e gerível */
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border-bottom: var(--border);
+}
+
+.header-section__area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    padding: 2rem 1.5rem;
+}
+
+main {
+   padding: 2rem 3rem; 
+}
+
+.area__calendario {
+        max-width: 900px;
+       display: grid;
+        grid-template-columns: auto auto auto;
+        background-color: rgb(112, 114, 116);
+        padding: 10px;
+        user-select: none;
+        border-radius: 16px;
+}
+
+.calendario__nome{
+    font-size: 20px;
+}
+
+.area__calendario div {
+    background-color: #f1f1f1;
+    
+    padding: 3px;
+    text-align: center;
+}
+
+.area__dias {
+    transform: translateY(-5px);
+    font-size: 15px;
+    width: auto;
+    padding: 10px;
+}
+
+@media (hover: hover) {
+    .dia__mes:hover {
+        background-color: #bdc2cf;
+        transform: translateY(-3px);
+    }
+}
+
+.nome__dias:hover{
+    transition: all 0.3s ease-in-out;
+}
+
+.dia__mes{
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.cinza:hover{
+    transition: all 0.3s ease-in-out;
+}
+
+.image__area > img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.lateral__bar {
+    background-color: red;
+
+    opacity: 0;
+    width: 0;
+    pointer-events: none;
+
+    transition: opacity.4s ease, width .4s ease-in-out;
+}
+
+.active {
+    width: 20%;
+    height: 100dvh;
+    opacity: 1;
+    pointer-events: all;
+
+    /* configurações provisórias */
+    position: sticky;
+    z-index: 99;
+}
+
+/* àrea abaixo necessita de correção!! */
+
+.suplementar__bar {
+    position: absolute;
+    background-color: #002594;
+    transform: translate(-100%, 0);
+    z-index: 99;
+    
+    opacity: 0;
+    pointer-events: none;
+
+    height: 100%;
+    min-height: 100dvh;
+
+   transition: opacity.4s ease, width .4s ease-in-out, transform .4s ease;
+
+   color: white;
+   display: flex;
+   padding: 15px;
+   justify-content: center;
+   align-items: center;
+}
+
+.suplementar__bar.active {
+     transform: translate(0, 0);
+     opacity: 1;
+     width: 25%;
+}

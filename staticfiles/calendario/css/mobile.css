@@ -1,0 +1,5 @@
+.suplementar__bar.active {
+     transform: translate(0, 0);
+     opacity: 1;
+     width: 80%;
+}
